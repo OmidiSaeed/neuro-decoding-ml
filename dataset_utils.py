@@ -6,8 +6,6 @@ Utility functions to load the desired experiment using allensdk and structure th
 """
 
 from allensdk.brain_observatory.behavior.behavior_project_cache import VisualBehaviorOphysProjectCache
-import pandas as pd
-from tqdm import tqdm
 import numpy as np
 
 def load_cache(cache_dir="cache_dir"):
@@ -38,7 +36,7 @@ def get_ophys_table_with_cellcount(cache):
     cell_per_exp = cell_table.groupby(['ophys_experiment_id']).size().rename('cell_count')
     return ophys_table.join(cell_per_exp, how='left')
 
-def filter_ophys_experiments(ophys_table, passive=True, min_cell_count=100):
+def filter_ophys_experiments(ophys_table, passive: bool=True, min_cell_count=100):
     """
     select only experiment with passive/active and cell count >= min_cell_count
     :param passive: (string) experiments in which animal only sees a visual stimuli without any behavioral task is passive

@@ -52,7 +52,8 @@ def train_classifier_cv(X, y, cv: int=5, random_state: int=42) -> Dict[str, Any]
             "mean_acc": mean_acc,
             "std_acc": std_acc,
             "confusion_matrix": cm,
-            "confusion_matrix_norm": cm_norm
+            "confusion_matrix_norm": cm_norm,
+            "labels": labels
         }
     return results
 

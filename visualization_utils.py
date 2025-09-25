@@ -43,8 +43,8 @@ def plot_heatmaps_by_label(
 def plot_accuracy_bars(results: Dict[str, Any]):
 
     names = list(results.keys())
-    means = [results[n]['mean'] for n in names]
-    stds = [results[n]['std'] for n in names]
+    means = [results[n]['mean_acc'] for n in names]
+    stds = [results[n]['std_acc'] for n in names]
 
     fig, ax = plt.subplots(figsize=(6, 4))
     x = np.arange(len(names))
